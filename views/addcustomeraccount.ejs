@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/customers">Home</a>
+    <% if(message) { %>
+        <h5><%= message %></h5>
+    <% } %>
+    <table border="1" style="width: 50%;">
+        <tr>
+            <td>Account Number</td>
+            <td>Type</td>
+            <td>Balance</td>
+            <td>Action</td>
+        </tr>
+        <% accounts.forEach(el => { %>
+            <tr>
+                <td><%= el.accountNumber %></td>
+                <td><%= el.type %></td>
+                <td><%= changeBalance(el.balance) %></td>
+                <td><a href="/customers/<%= el.Customer.id %>/accounts/<%= el.id %>/transfer">transfer</a></td>
+            </tr>
+        <% }) %>
+    </table>
+    <h1>ADD ACCOUNT</h1>
+    <form action="" method="POST">
+        <label>Account Type:</label><br>
+        <select name="type">
+            <option value="On Account">On Account</option>
+            <option value="Xtra Payroll">Xtra Payroll</option>
+            <option value="Tabunganku">Tabunganku</option>
+        </select><br>
+        <label>Balance:</label><br>
+        <input type="text" name="balance"><br>
+        <input type="submit" value="SAVE">
+    </form>
+</body>
+</html>

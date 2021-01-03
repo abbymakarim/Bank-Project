@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/customers">Home</a>
+    <% if(messages !== 'no'){ %>
+        <% messages.forEach(el => { %>
+            <h3><%= el %></h1>
+        <% }) %>
+    <% } %>
+    <form action="/customers/register" method="POST">
+        <label>ID Number:</label><br>
+        <input type="text" name="identityNumber" placeholder="Input your id Number"><br>
+        <label>Full Name:</label><br>
+        <input type="text" name="fullName" placeholder="Input your full name"><br>
+        <label>Address:</label><br>
+        <input type="text" name="address" placeholder="Input your address"><br>
+        <label>Birth Date:</label><br>
+        <input type="date" name="birthDate"><br>
+        <label>Gender:</label><br>
+            <input type="radio" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" name="gender" value="female">
+            <label for="female">Female</label><br>
+        <input type="submit" value ="REGISTER">
+    </form>
+</body>
+</html>

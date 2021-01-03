@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/customers/<%= customer[0].id %>/editProfile" method="POST">
+        <label>ID Number:</label><br>
+        <input type="text" name="identityNumber" value="<%= customer[0].identityNumber %>"><br>
+        <label>Full Name:</label><br>
+        <input type="text" name="fullName" value="<%= customer[0].fullName %>"><br>
+        <label>Address:</label><br>
+        <input type="text" name="address" value="<%= customer[0].address %>"><br>
+        <label>Birth Date:</label><br>
+        <input type="date" name="birthDate" value="<%= date %>"><br>
+        <label>Gender:</label><br>
+            <input type="radio" name="gender" value="male" <% if (customer[0].gender === "male") { %> checked <% } %>>
+            <label for="male">Male</label><br>
+            <input type="radio" name="gender" value="female" <% if (customer[0].gender === "female") { %> checked <% } %>>
+            <label for="female">Female</label><br>
+        <input type="submit" value ="Edit Profile">
+    </form>
+    <a href="/customers">Back</a>
+</body>
+</html>
